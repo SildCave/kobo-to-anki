@@ -1,0 +1,5 @@
+cambridge-words-provider/configuration
+.env
+cambridge-words-provider/db-data
+target
+db-data

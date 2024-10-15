@@ -1,0 +1,22 @@
+[package]
+name = "kobo-to-anki-sync-tool"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+eframe = "0.29.1"
+env_logger = "0.11.5"
+egui-file-dialog = "0.7.0"
+disk_list = "0.2.10"
+tokio = { version = "1.40.0", features = ["full"] }
+reqwest = { version = "0.12.8", features = ["json"] }
+anki_bridge = { git = "https://github.com/SildCave/anki_bridge", version = "0.8.0", features = ["reqwest_async"] }
+anyhow = "1.0.86"
+rusqlite = { version = "0.32.1", features = ["bundled"] }
+serde = { version = "1.0.210", features = ["derive"] }
+serde_json = "1.0.128"
+catppuccin-egui = { version = "5.3.0", default-features = false, features = ["egui29"] }
+
+[profile.release]
+panic = "abort"
+lto = "fat"

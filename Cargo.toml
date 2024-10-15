@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "cambridge-words-provider",
+    "kobo-to-anki-sync-tool",
+]

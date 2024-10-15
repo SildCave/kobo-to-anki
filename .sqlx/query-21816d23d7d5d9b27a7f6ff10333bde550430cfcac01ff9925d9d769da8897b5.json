@@ -1,0 +1,52 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            SELECT * FROM words WHERE word = $1\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "word",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "meanings_with_examples",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "created_at",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 4,
+        "name": "acsess_count",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 5,
+        "name": "last_acsess_at",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "21816d23d7d5d9b27a7f6ff10333bde550430cfcac01ff9925d9d769da8897b5"
+}

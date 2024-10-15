@@ -1,0 +1,12 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "-- Add up migration script here\n\nCREATE TABLE\n    IF NOT EXISTS words (\n        id SERIAL PRIMARY KEY,\n        word TEXT NOT NULL,\n        meanings_with_examples TEXT NOT NULL,\n        created_at BIGINT NOT NULL,\n        acsess_count INT NOT NULL,\n        last_acsess_at BIGINT NOT NULL\n    );",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": []
+  },
+  "hash": "70ddc83bad449a209960438405801f736c3d26afd8800e709e5524e4f5369cb7"
+}
