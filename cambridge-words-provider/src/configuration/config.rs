@@ -21,7 +21,6 @@ pub struct ServerConfig {
     pub cloudflare_ips_refresh_interval_jitter_s: Option<u64>,
     pub pem_cert_path: Option<String>,
     pub pem_key_path: Option<String>,
-    pub jwt_secret_path: String,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]

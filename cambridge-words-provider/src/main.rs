@@ -61,7 +61,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let trace_layer = TraceLayer::new_for_http()
         .make_span_with(DefaultMakeSpan::default().include_headers(true));
-
+    
     let app = configure_routes(
         db_client,
         config.endpoint_rate_limiters.get_word.clone(),
@@ -88,6 +88,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let metrics_app = logs::metrics::metrics_app(
         trace_layer
     );
+    println!("{:?}", config.server.pem_cert_path);
     let server_tls_config: Option<RustlsConfig> = {
         if config.server.enable_https {
             Some(
@@ -100,6 +101,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             None
         }
     };
+    println!("{:?}", server_tls_config);
 
     let server_addr = SocketAddr::new(
         config.server.host.parse().unwrap(),
