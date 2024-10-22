@@ -7,14 +7,15 @@ impl DatabaseClient {
         let meanings_with_examples = serde_json::to_string(&word.meanings_with_examples).unwrap();
         let res = sqlx::query!(
             r#"
-            INSERT INTO words (word, meanings_with_examples, created_at, last_acsess_at, acsess_count)
-            VALUES ($1, $2, $3, $4, $5)
+            INSERT INTO words (word, meanings_with_examples, created_at, last_acsess_at, acsess_count, has_meaning)
+            VALUES ($1, $2, $3, $4, $5, $6)
             "#,
             word.word,
             meanings_with_examples,
             chrono::Utc::now().timestamp(),
             chrono::Utc::now().timestamp(),
-            0
+            0,
+            word.has_meaning
 
         );
         res.execute(&self.postgres_con).await?;
@@ -52,7 +53,8 @@ impl DatabaseClient {
         let meanings_with_examples: Vec<MeaningWithExamples> = serde_json::from_str(&meanings_with_examples).unwrap();
         let word = Word {
             word: word.word,
-            meanings_with_examples
+            meanings_with_examples,
+            has_meaning: word.has_meaning
         };
         println!("{:?}", word.word);
 

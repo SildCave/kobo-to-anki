@@ -8,7 +8,7 @@ use serde::{
     Serialize, Deserialize
 };
 
-use crate::database::DatabaseClient;
+use crate::{database::DatabaseClient, routes::Word};
 
 use super::cambrinary_bindings::{fetch_word_from_cambrinary, CambrinarySessionTracker};
 
@@ -50,6 +50,9 @@ pub async fn get_word(
                 Ok(_) => info!("Word {} metadata updated", word.word),
                 Err(e) => tracing::warn!("{:?}", e),
             }
+            if !word.has_meaning {
+                return (StatusCode::NOT_FOUND, "Word not found".to_string());
+            }
             let word = serde_json::to_string(&word).unwrap();
             return (StatusCode::OK, word);
         }
@@ -73,7 +76,10 @@ pub async fn get_word(
     }
     let word = word.unwrap();
     if word.is_none() {
-        tracing::info!("Word {} not found", requested_word);
+        let mut word = Word::default();
+        word.word = requested_word.clone();
+        tracing::info!("Word {} not found, inserting to db", requested_word);
+        db_client.insert_word(word.clone()).await.unwrap();
         return (StatusCode::NOT_FOUND, "Word not found".to_string());
     }
     let word = word.unwrap();

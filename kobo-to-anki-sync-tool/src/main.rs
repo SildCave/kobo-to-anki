@@ -3,7 +3,7 @@
 use std::{path::PathBuf, sync::{Arc, Mutex}};
 
 use anki_bridge::prelude::CardsInfoResponse;
-use eframe::egui::{self};
+use eframe::egui::{self, IconData};
 use egui_file_dialog::FileDialog;
 use tokio::runtime;
 
@@ -88,10 +88,35 @@ impl eframe::App for AppState {
 }
 
 
+fn load_icon() -> IconData {
+    let icon = include_bytes!(
+        "../assets/icons/icon.png"
+    );
+    let (icon_rgba, icon_width, icon_height) = {
+        let image = image::load_from_memory(icon)
+            .expect("Failed to open icon path")
+            .into_rgba8();
+        let (width, height) = image.dimensions();
+        let rgba = image.into_raw();
+        (rgba, width, height)
+    };
+
+    IconData {
+        rgba: icon_rgba,
+        width: icon_width,
+        height: icon_height,
+    }
+}
 fn main() -> eframe::Result<()> {
     env_logger::init();
-    let mut native_options = eframe::NativeOptions::default();
-
+    let icon = Arc::new(load_icon());
+    let mut native_options = eframe::NativeOptions {
+        viewport: egui::ViewportBuilder {
+            icon: Some(icon),
+            ..Default::default()
+        },
+        ..Default::default()
+    };
     native_options.viewport.min_inner_size = Some(egui::vec2(800.0, 600.0));
 
     eframe::run_native(

@@ -60,7 +60,7 @@ pub fn update_ui(
         layout::display_anki_connection_status_message(app_state, ui);
         if app_state.anki_connection_status != crate::anki::AnkiConnectionStatus::Connected {
             layout::draw_anki_connection_guide(ui);
-        } else if app_state.sync_started == false && !(app_state.prepared_words_from_anki.is_some() && app_state.prepared_words_from_kobo.is_some() && app_state.kobo_path.is_some()) {
+        } else if app_state.sync_started == false && !(app_state.prepared_words_from_anki.is_some() && app_state.prepared_words_from_kobo.is_some() && app_state.kobo_path.is_some()) && app_state.prepared_words_from_kobo.is_some() {
             ui.add_space(10.0);
             layout::draw_horizontal_line(ui);
             layout::display_deck_selection_dropdown(app_state, ui);

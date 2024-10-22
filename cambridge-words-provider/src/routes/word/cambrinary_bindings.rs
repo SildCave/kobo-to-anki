@@ -13,6 +13,7 @@ use tracing::{debug, info};
 pub struct Word {
     pub word: String,
     pub meanings_with_examples: Vec<MeaningWithExamples>,
+    pub has_meaning: bool,
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -25,6 +26,17 @@ impl Word {
     pub fn to_json(&self) -> String {
         serde_json::to_string(&self).unwrap()
     }
+}
+
+impl Default for Word {
+    fn default() -> Self {
+        Self {
+            word: "".to_string(),
+            meanings_with_examples: vec![],
+            has_meaning: false,
+        }
+    }
+    
 }
 
 pub struct CambrinarySessionTracker {
@@ -143,6 +155,7 @@ pub async fn fetch_word_from_cambrinary(word: &str) -> Result<Option<Word>> {
     let mut word = Word {
         word: word.to_string(),
         meanings_with_examples: vec![],
+        has_meaning: true,
     };
     for meaning_with_example in meanings_with_examples {
         if meaning_with_example.contains("[0;34;49m") {

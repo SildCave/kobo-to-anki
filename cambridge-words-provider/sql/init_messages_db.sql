@@ -7,5 +7,6 @@ CREATE TABLE
         meanings_with_examples TEXT NOT NULL,
         created_at BIGINT NOT NULL,
         acsess_count INT NOT NULL,
-        last_acsess_at BIGINT NOT NULL
+        last_acsess_at BIGINT NOT NULL,
+        has_meaning BOOLEAN NOT NULL
     );
