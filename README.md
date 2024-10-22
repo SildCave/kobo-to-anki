@@ -24,8 +24,8 @@
  - A computer running Windows 10/11 or Linux (Wayland and X11 are supported)
  - Patience
 
-### How to use
- - Download the app through github releases page
+### How to install
+ - Download the app through github release page
 
 ### How to use
 - **IMPORTANT**: If the app freezes or becomes unresponsive, simply restart it.
