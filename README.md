@@ -21,6 +21,7 @@ Effortlessly create Anki decks from the words you save while reading books on yo
 ### Requirements
 - A computer running Windows 10/11 or Linux (Wayland and X11 are supported)
 - Patience
+- IMPORTANT: [anki markdown extension](https://ankiweb.net/shared/info/1087328706)
 
 ### How to install
 - Download the app through the GitHub releases page.
