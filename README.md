@@ -25,7 +25,7 @@
  - Patience
 
 ### How to install
- - Download the app through github release page
+ - Download the app through github releases page
 
 ### How to use
 - **IMPORTANT**: If the app freezes or becomes unresponsive, simply restart it.
