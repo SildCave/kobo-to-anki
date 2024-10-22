@@ -1,6 +1,6 @@
 
 ## Kobo To Anki Sync Tool
-Effortlessly create Anki decks from the words you save while reading books on your Kobo.
+Effortlessly create Anki decks from the words you save while reading books on your Kobo. [shitty article](https://goodereader.com/blog/kobo-ereader-news/kobo-e-readers-now-save-words-you-looked-up-in-the-dictionary)
 
 ### This tool provides you with a simple, self-explanatory GUI interface
 ![This is an alt text.](https://raw.githubusercontent.com/SildCave/kobo-to-anki/refs/heads/main/screenshots/s1.png "GUI")
