@@ -32,5 +32,12 @@
 - **IMPORTANT**: If the app shows an error stating it cannot connect to the server, please notify me on Discord (@sildcave) or on GitHub.
 
 ### How to compile (Linux only, on Windows it's probably just as easy)
- - Install rust
+ - Install [rust](https://www.rust-lang.org/)
  - `cargo build --release`
+
+### How it works (in steps)
+ - Find Kobo eReader (works on Linux, Windows might require manual selection)
+ - Try to establish connection between anki and the app through [anki connect](https://ankiweb.net/shared/info/2055492159)
+ - Compare words in the deck to the words in your reader
+ - Add missing words to the deck (words come from my proxy, which uses the Cambridge Dictionary under the hood. The proxy is required to make the lookup times reasonable)
+
