@@ -25,7 +25,7 @@
  - Patience
 
 ### How to use
- - Download the app throgh github release page
+ - Download the app through github release page
 
 ### How to compile (Linux only, on Windows it's probably just as easy)
  - Install rust
