@@ -24,8 +24,12 @@
  - A computer running Windows 10/11 or Linux (Wayland and X11 are supported)
  - Patience
 
-### How to use
+### How to install
  - Download the app through github release page
+
+### How to use
+- **IMPORTANT**: If the app freezes or becomes unresponsive, simply restart it.
+- **IMPORTANT**: If the app shows an error stating it cannot connect to the server, please notify me on Discord (@sildcave) or on GitHub.
 
 ### How to compile (Linux only, on Windows it's probably just as easy)
  - Install rust
